@@ -1,14 +1,16 @@
 {
   "name": "corner69-admin",
-  "version": "1.0.0",
-  "main": "App.tsx",
+  "version": "1.1.0",
   "private": true,
+  "description": "CORNER69 — application d'administration (React Native / Expo) et site boutique (HTML/CSS/JS), thème #0F1114 / #C6F000",
+  "main": "App.tsx",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "site": "python3 -m http.server 8080"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.17",
