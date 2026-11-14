@@ -3,23 +3,19 @@
    Version sans dependance : aucun CDN, aucun import.
    Ce fichier s'ajoute comme les autres scripts du site.
 
-   DEJA REMPLI pour CORNER69 :
-     URL_BASE      = https://jmhtdfbqleivsvootvma.supabase.co
-     CLE_PUBLIQUE  = la cle publique du projet (sb_publishable_...)
+   IDENTIFIANTS A REMPLIR :
+     URL_BASE      = l'adresse de votre projet Supabase
+     CLE_PUBLIQUE  = votre cle publiable (sb_publishable_...)
 
    Ces deux valeurs sont PUBLIQUES par nature : elles sont
    faites pour vivre dans un site. Ce qui doit rester secret,
-   c'est la cle "secret" / "service_role" du projet (elle
-   commence par sb_secret_ ou eyJ... en role service_role).
+   c'est la cle "secret" / "service_role" du projet.
    Elle ne doit JAMAIS figurer ici.
 
-   QUELLE CLE UTILISER :
-     La cle "anon" est faite pour etre publique : elle est
-     concue pour vivre dans un site. Les regles RLS limitent
-     ce qu'elle peut faire (lire le catalogue, appeler les
-     fonctions).
-     La cle "service_role" ne doit JAMAIS figurer ici : elle
-     contourne toutes les regles de securite.
+   La cle "publishable" est faite pour etre publique : elle est
+   concue pour vivre dans un site. Les regles RLS limitent
+   ce qu'elle peut faire (lire le catalogue, appeler les
+   fonctions).
 
    Ce fichier ne contient aucun secret.
    ========================================================= */
@@ -28,19 +24,18 @@ var CORNER69_API = (function () {
   'use strict';
 
   /* -------------------------------------------------------
-     IDENTIFIANTS DU PROJET (deja remplis)
+     IDENTIFIANTS DU PROJET — a remplir
      ------------------------------------------------------- */
-  var URL_BASE = 'https://jmhtdfbqleivsvootvma.supabase.co';
-  var CLE_PUBLIQUE = 'sb_publishable_ns_kx2n4WNuvmhFRE4Tg-Q_W4NTpCb1';
+  var URL_BASE = '';      /* a remplir : adresse de votre projet Supabase */
+  var CLE_PUBLIQUE = '';  /* a remplir : votre cle publiable */
 
   /* -------------------------------------------------------
      OUTILS INTERNES
      ------------------------------------------------------- */
 
   function configure() {
-    /* Les identifiants sont remplis : on verifie qu'ils ont
-       la bonne forme, pour signaler clairement une valeur
-       tronquee ou mal collee plutot que d'echouer en silence. */
+    /* Tant que les identifiants ne sont pas remplis, les appels
+       se contentent de le dire : le site reste utilisable. */
     return URL_BASE.indexOf('supabase.co') > -1 &&
            CLE_PUBLIQUE.length > 20;
   }
@@ -63,7 +58,7 @@ var CORNER69_API = (function () {
     if (!configure()) {
       return Promise.resolve({
         ok: false,
-        erreur: 'La boutique n\'est pas reliée à sa base de données. Vérifiez les identifiants dans api.js.'
+        erreur: 'La boutique n\'est pas reliée à sa base de données. Remplissez les identifiants dans api.js.'
       });
     }
 

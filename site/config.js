@@ -4,29 +4,25 @@
    Tout se règle ici, jamais dans le HTML.
 
    ---------------------------------------------------------
-   VERSION NETTOYÉE
-   Ce fichier ne contient AUCUN secret.
-   Rappel : ce fichier est public (il est servi par GitHub
-   Pages). Tout ce qu'on y écrit est lisible par n'importe
-   qui. Un jeton, un mot de passe ou une clé d'API n'a donc
-   rien à y faire.
+   IDENTIFIANTS A REMPLIR
+   SUPABASE_URL et SUPABASE_CLE sont vides : collez ici
+   l'adresse de votre projet et sa cle publiable.
 
-   Les deux valeurs ci-dessous (SUPABASE_URL et SUPABASE_CLE)
-   sont PUBLIQUES par nature : la clé « publishable » est faite
-   pour vivre dans un site. Ce qui doit rester secret, c'est la
-   clé « secret » / « service_role » du projet — elle ne doit
-   jamais figurer ici.
-
-   Pour recevoir les commandes : elles passent par les
-   fonctions Supabase (voir README). Le jeton du bot Telegram
-   reste dans les secrets Supabase, jamais ici.
+   Ce fichier est public (il est servi par GitHub Pages).
+   Tout ce qu'on y ecrit est lisible par n'importe qui.
+   Trois choses n'ont donc rien a y faire :
+     - la cle « secret » / « service_role » du projet
+     - un jeton de bot Telegram
+     - un mot de passe d'administration
+   La cle publiable, elle, est faite pour vivre ici :
+   les regles RLS limitent ce qu'elle peut faire.
    ---------------------------------------------------------
    ========================================================= */
 
-/* Adresse du projet et clé publique. Ces deux lignes doivent
+/* Adresse du projet et cle publique. Ces deux lignes doivent
    rester AVANT var BOUTIQUE : le reste du site les utilise. */
-var SUPABASE_URL = "https://jmhtdfbqleivsvootvma.supabase.co";
-var SUPABASE_CLE = "sb_publishable_ns_kx2n4WNuvmhFRE4Tg-Q_W4NTpCb1";
+var SUPABASE_URL = "";   /* a remplir : adresse de votre projet Supabase */
+var SUPABASE_CLE = "";   /* a remplir : votre cle publiable (sb_publishable_...) */
 
 var BOUTIQUE = {
 
@@ -40,7 +36,6 @@ var BOUTIQUE = {
 
   /* -------------------------------------------------------
      ZONE DE LIVRAISON
-     Le commerce livre dans le Rhone : departement 69.
      Mettre toutes: false et departements: ["69"] pour
      restreindre a un departement.
      ------------------------------------------------------- */
@@ -193,19 +188,16 @@ var BOUTIQUE = {
   /* -------------------------------------------------------
      NOTIFICATIONS — adresses des fonctions serveur
 
-     Ces adresses sont PUBLIQUES par nature : elles ne
-     contiennent aucun secret. Le jeton du bot Telegram vit
-     dans les secrets Supabase, jamais ici.
-
+     Collez ici les adresses de vos fonctions Supabase.
      Pour desactiver un envoi, passez « active » a false.
      ------------------------------------------------------- */
   notifications: {
-    url: "https://jmhtdfbqleivsvootvma.supabase.co/functions/v1/notifier-commande",
+    url: "",   /* a remplir : .../functions/v1/notifier-commande */
     active: true
   },
 
   notifEtape: {
-    url: "https://jmhtdfbqleivsvootvma.supabase.co/functions/v1/notifier-etape",
+    url: "",   /* a remplir : .../functions/v1/notifier-etape */
     active: true
   }
 
